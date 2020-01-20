@@ -1,0 +1,18 @@
+.container {
+  margin: 1em 0;
+  display: flex;
+  a {
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    flex: 25%;
+
+    &:hover {
+      color: gray;
+    }
+  }
+
+  .active {
+    color: gray;
+  }
+}
