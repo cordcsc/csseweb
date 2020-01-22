@@ -1,2 +1,0 @@
-# csseweb
-CSSE Website
