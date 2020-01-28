@@ -10,7 +10,8 @@ export default function Home() {
         <Phone className={Styles.phone} />
       </div>
       <div className={Styles.container}>
-        <CSSELogo />
+        {/* <CSSELogo /> */}
+        <h2>CSSE</h2>
       </div>
     </Layout>
   );
