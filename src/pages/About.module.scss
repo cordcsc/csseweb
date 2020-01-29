@@ -1,18 +1,16 @@
-@import "../styles//media-queries.scss";
+@import "../styles/media-queries.scss";
 
 .container {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  // flex-direction: row-reverse;
   margin: auto;
 
   @include sm {
     text-align: left;
-    // flex-direction: row;
   }
 
-  .right {
+  .left {
     flex: 100%;
     margin: auto;
     @include sm {
@@ -21,7 +19,7 @@
     }
     p {
       max-width: 80%;
-      margin: 0 auto;
+      margin: auto;
 
       @include sm {
         max-width: 60%;
@@ -29,20 +27,16 @@
     }
     h1 {
       text-align: center;
-      margin: 1em auto 0 auto;
       @include sm {
         text-align: left;
         max-width: 60%;
-        margin: 0 auto;
+        margin: 0.5em auto;
       }
     }
   }
 
-  .left {
+  .right {
     flex: 100%;
-    margin: auto;
-    text-align: center;
-
     @include sm {
       flex: 40%;
     }
@@ -54,10 +48,10 @@
 
       @include sm {
         margin-top: 0;
-        width: 60%;
+        width: 50%;
       }
       @include lg {
-        width: 60%;
+        width: 40%;
       }
     }
   }

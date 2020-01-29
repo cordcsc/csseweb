@@ -7,11 +7,13 @@ export default function Home() {
   return (
     <Layout>
       <div className={Styles.container}>
-        <Phone className={Styles.phone} />
-      </div>
-      <div className={Styles.container}>
-        {/* <CSSELogo /> */}
-        <h1>CSSE</h1>
+        <div className={Styles.left}>
+          <Phone className={Styles.phone} />
+        </div>
+        <div className={Styles.right}>
+          <h1>CSSE</h1>
+          <p>Concordia College Computer Science and Engineering Club</p>
+        </div>
       </div>
     </Layout>
   );
