@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
+import Styles from "./Contact.module.scss";
 import Axios from "axios";
 
 export default function Contact() {
@@ -26,30 +27,41 @@ export default function Contact() {
 
   return (
     <Layout>
-      <h1>Contact</h1>
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          value={name}
-          name="name"
-          onChange={e => setName(e.target.value)}
-          placeholder="Name"
-        />
-        <input
-          type="text"
-          value={email}
-          name="email"
-          onChange={e => setEmail(e.target.value)}
-          placeholder="Email"
-        />
-        <textarea
-          value={message}
-          name="message"
-          onChange={e => setMessage(e.target.value)}
-          placeholder="Message"
-        />
-        <input type="submit" value="Submit" />
-      </form>
+      <div className={Styles.page}>
+        <h1>Contact</h1>
+        <p>
+          Contact the Concordia Computer Science and Engineering Club using the
+          form below.
+        </p>
+        <div>
+          <form className={Styles.container} onSubmit={onSubmit}>
+            <input
+              type="text"
+              value={name}
+              name="name"
+              onChange={e => setName(e.target.value)}
+              placeholder="Name"
+              autoComplete="off"
+            />
+            <input
+              type="text"
+              value={email}
+              name="email"
+              onChange={e => setEmail(e.target.value)}
+              placeholder="Email"
+              autoComplete="off"
+            />
+            <textarea
+              value={message}
+              name="message"
+              onChange={e => setMessage(e.target.value)}
+              placeholder="Message"
+              autoComplete="off"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </div>
     </Layout>
   );
 }

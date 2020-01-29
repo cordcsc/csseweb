@@ -11,7 +11,7 @@ export default function Home() {
       </div>
       <div className={Styles.container}>
         {/* <CSSELogo /> */}
-        <h2>CSSE</h2>
+        <h1>CSSE</h1>
       </div>
     </Layout>
   );

@@ -1,11 +1,13 @@
 h1 {
   flex: 50%;
+  text-align: center;
 }
 p {
   flex: 40%;
 }
 .container {
   flex: 50%;
+  justify-content: center;
 }
 .phone {
   width: 75%;
