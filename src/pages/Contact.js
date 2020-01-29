@@ -28,40 +28,44 @@ export default function Contact() {
 
   return (
     <Layout>
-      <div className={Styles.page}>
-        <h1>Contact</h1>
-        <p>
-          Contact the Concordia Computer Science and Engineering Club using the
-          form below.
-        </p>
-        <Keyboard />
-        <div>
-          <form className={Styles.container} onSubmit={onSubmit}>
-            <input
-              type="text"
-              value={name}
-              name="name"
-              onChange={e => setName(e.target.value)}
-              placeholder="Name"
-              autoComplete="off"
-            />
-            <input
-              type="text"
-              value={email}
-              name="email"
-              onChange={e => setEmail(e.target.value)}
-              placeholder="Email"
-              autoComplete="off"
-            />
-            <textarea
-              value={message}
-              name="message"
-              onChange={e => setMessage(e.target.value)}
-              placeholder="Message"
-              autoComplete="off"
-            />
-            <input type="submit" value="Submit" />
-          </form>
+      <div className={Styles.container}>
+        <div className={Styles.left}>
+          <h1>Contact</h1>
+          <p>
+            Contact the Concordia Computer Science and Engineering Club using
+            the form below.
+          </p>
+          <div>
+            <form className={Styles.form} onSubmit={onSubmit}>
+              <input
+                type="text"
+                value={name}
+                name="name"
+                onChange={e => setName(e.target.value)}
+                placeholder="Name"
+                autoComplete="off"
+              />
+              <input
+                type="text"
+                value={email}
+                name="email"
+                onChange={e => setEmail(e.target.value)}
+                placeholder="Email"
+                autoComplete="off"
+              />
+              <textarea
+                value={message}
+                name="message"
+                onChange={e => setMessage(e.target.value)}
+                placeholder="Message"
+                autoComplete="off"
+              />
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
+        </div>
+        <div className={Styles.right}>
+          <Keyboard />
         </div>
       </div>
     </Layout>
