@@ -6,5 +6,5 @@ export default function MemberList({ members }) {
     return <MemberCard name={member.name} photoUrl={member.photoUrl} />;
   });
 
-  return <div>{list}</div>;
+  return <>{list}</>;
 }
