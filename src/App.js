@@ -4,9 +4,9 @@ import "./styles/global.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Members from "./pages/Members";
+import Members from "./pages/Members/Members";
 import Contact from "./pages/Contact";
-import MemberPage from "./pages/MemberPage";
+import MemberPage from "./pages/Members/MemberPage";
 
 function App() {
   return (
