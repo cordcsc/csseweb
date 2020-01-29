@@ -1,6 +1,10 @@
 @import "../styles/_colors";
-html{
+html {
   font-family: Helvetica, Arial, sans-serif;
+
+  h1 {
+    font-size: 3em;
+  }
 }
 
 .background {
@@ -18,8 +22,9 @@ html{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100vw;
+  width: 90vw;
   height: 100vh;
+  margin: auto;
   header {
     flex: 10%;
   }

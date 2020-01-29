@@ -1,5 +1,6 @@
 import React from "react";
-import "./styles/global.css";
+import "./styles/global.scss";
+// import "./styles/_include-media.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import Styles from "./Contact.module.scss";
+import { ReactComponent as Keyboard } from "../assets/Keyboard.svg";
 import Axios from "axios";
 
 export default function Contact() {
@@ -33,6 +34,7 @@ export default function Contact() {
           Contact the Concordia Computer Science and Engineering Club using the
           form below.
         </p>
+        <Keyboard />
         <div>
           <form className={Styles.container} onSubmit={onSubmit}>
             <input
