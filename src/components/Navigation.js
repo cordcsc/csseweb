@@ -6,16 +6,16 @@ export default function Navigation() {
   return (
     <div className={Styles.container}>
       <NavLink activeClassName={Styles.active} exact to="/">
-        Home
+        <h2>Home</h2>
       </NavLink>
       <NavLink activeClassName={Styles.active} to="/about">
-        About
+        <h2>About</h2>
       </NavLink>
       <NavLink activeClassName={Styles.active} to="/members">
-        Members
+        <h2>Members</h2>
       </NavLink>
       <NavLink activeClassName={Styles.active} to="/contact">
-        Contact
+        <h2>Contact</h2>
       </NavLink>
     </div>
   );
