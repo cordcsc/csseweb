@@ -1,3 +1,4 @@
+@import "../styles/_colors";
 .container {
   margin: 1em 0;
   display: flex;
@@ -6,13 +7,16 @@
     color: white;
     text-decoration: none;
     flex: 25%;
+    transition: all 0.7s ease-in-out;
 
     &:hover {
-      color: gray;
+      color: scale-color($color: $darkBlueBg, $lightness: 70%);
+      transition: all 0.7s ease-in-out;
     }
   }
 
   .active {
-    color: gray;
+    color: scale-color($color: $darkBlueBg, $lightness: 70%);
+    transition: all 0.7s ease-in-out;
   }
 }
