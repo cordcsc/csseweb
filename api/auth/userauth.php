@@ -1,6 +1,5 @@
 <?php
 
-
 //Check to see if Post Request is coming in.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     switch (isset($_POST)){
@@ -28,11 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 
 function authenticateAdmin(){
-if(session_status === PHP_SESSION_ACTIVE && isset($_SESSION['access'])){
- if($_SESSION['access'] === 'Admin'){return true;}
- return false;
-}
-return false;
+    if(session_status === PHP_SESSION_ACTIVE && isset($_SESSION['access'])){
+        if($_SESSION['access'] === 'Admin'){return true;}
+        return false;
+       }
+       return false;
 }
 
 function checkLoggedIn(){
