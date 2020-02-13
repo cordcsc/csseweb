@@ -36,15 +36,18 @@ function authenticateAdmin(){
 
 function checkLoggedIn(){
     if (session_status() === PHP_SESSION_ACTIVE && isset($_SESSION['username'])){
-        $responseData = array("UserName" =>  $_SESSION['username'], "Message" => "User Currently Logged in");
+        $responseData = array("UserName" =>  $_SESSION['username'], 
+        "AccessType" => $_SESSION['access'], "isLoggedIn" => true);
+
         http_response_code(200);
         header('Content-type:application/json;charset=utf-8');
         echo json_encode($responseData);
-        session_destroy();
         exit;
     }
     else{
-        echo("No Logged in User");
+        $responseData = array("isLoggedIn" => false);
+        echo json_encode($responseData);
+        exit;
     }
 }
 
@@ -59,13 +62,12 @@ LEFT JOIN UserRole ON UserRole.UserId = User.UserId
 LEFT JOIN Role ON UserRole.RoleId = cordstud_csse.Role.RoleId
  WHERE User.UserName = :username;";
 
-    $stmt = $conn->prepare($sql);
+//Here is how we run 
+   $params = array(':username' => $username);
+   $result = (new db())->connect()->runSQL($sql, $params);
 
-    $stmt->bindValue(':username', $username);
+ 
 
-
-    $stmt->execute();
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
     if($result['Password'] != null){

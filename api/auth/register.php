@@ -35,16 +35,12 @@ if(isset($_POST['register'])){
 
     //Construct the SQL statement and prepare it.
     $sql = "SELECT COUNT(UserName) AS num FROM User WHERE UserName = :username";
-    $stmt = $conn->prepare($sql);
+   
 
-    //Bind the provided username to our prepared statement.
-    $stmt->bindValue(':username', $username);
+    $params = array(':username' => $username);
+    $row = (new db())->connect()->runSQL($sql, $params);
 
-    //Execute.
-    $stmt->execute();
-
-    //Fetch the row.
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+   
 
     //If there is already a username in db with requested value, return error
     if($row['num'] > 0){
@@ -61,15 +57,11 @@ if(isset($_POST['register'])){
     //Prepare our INSERT statement.
     //Remember: We are inserting a new row into our users table.
     $sql = "INSERT INTO User (UserName, Password, CreatedAt) VALUES (:username, :password, :datecreated)";
-    $stmt = $conn->prepare($sql);
-
-    //Bind our variables.
-    $stmt->bindValue(':username', $username);
-    $stmt->bindValue(':password', $passwordHash);
-    $stmt->bindValue(':datecreated', $created);
 
     //Execute the statement and insert the new account.
-    $result = $stmt->execute();
+    $params = array(':username' => $username, ':password' => $passwordHash, ':datecreated' => $created);
+    $result = (new db())->connect()->runSQL($sql, $params);
+  
 
     //If the sign up process is successful.
     if($result){
