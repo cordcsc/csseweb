@@ -38,12 +38,13 @@
         //$stmt->bindValue(':username', $username);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            disconnect();
             return $result;
         }
         catch(Exception $e){
-            disconnect();
             echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
+        finally{
+            $this->disconnect();
         }
     }
 

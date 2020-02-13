@@ -54,6 +54,7 @@ function checkLoggedIn(){
 
 //Function called for incoming Login
 function login(){
+    try{
     $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
     $pass = !empty($_POST['password']) ? trim($_POST['password']) : null;
 
@@ -99,6 +100,10 @@ catch(Exception $e){
     else{
         echo("Please Enter a valid User");
     }
+}
+catch(Exception $e){
+    echo($e);
+}
 
 }
 
