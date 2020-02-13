@@ -4,7 +4,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     switch (isset($_POST)){
         case isset($_POST['login']):
-            login();
+            login($conn);
             break;
         case isset($_POST['logout']):
             logout();
@@ -53,7 +53,7 @@ function checkLoggedIn(){
 
 
 //Function called for incoming Login
-function login(){
+function login($conn){
     $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
     $pass = !empty($_POST['password']) ? trim($_POST['password']) : null;
 
@@ -63,13 +63,8 @@ LEFT JOIN Role ON UserRole.RoleId = cordstud_csse.Role.RoleId
  WHERE User.UserName = :username;";
 
 //Here is how we run 
-try{
    $params = array(':username' => $username);
    $result = (new db())->connect()->runSQL($sql, $params);
-}
-catch(Exception $e){
-    echo($e);
-}
 
  
 

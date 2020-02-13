@@ -1,5 +1,6 @@
 <?php
 require 'auth/session.php';
+require 'config/configure.php';
 //Below is include statement for db connection class
 include 'db.php';
 require 'auth/userauth.php';
