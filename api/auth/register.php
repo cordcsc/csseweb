@@ -36,9 +36,13 @@ if(isset($_POST['register'])){
     //Construct the SQL statement and prepare it.
     $sql = "SELECT COUNT(UserName) AS num FROM User WHERE UserName = :username";
    
-
+ try{
     $params = array(':username' => $username);
     $row = (new db())->connect()->runSQL($sql, $params);
+ }
+ catch(Exception $e){
+     echo($e);
+ }
 
    
 
@@ -59,8 +63,13 @@ if(isset($_POST['register'])){
     $sql = "INSERT INTO User (UserName, Password, CreatedAt) VALUES (:username, :password, :datecreated)";
 
     //Execute the statement and insert the new account.
+    try{
     $params = array(':username' => $username, ':password' => $passwordHash, ':datecreated' => $created);
     $result = (new db())->connect()->runSQL($sql, $params);
+    }
+    catch(Exception $e){
+        echo($e);
+    }
   
 
     //If the sign up process is successful.
