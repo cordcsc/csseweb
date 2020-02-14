@@ -27,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 
 function authenticateAdmin(){
-    if(session_status === PHP_SESSION_ACTIVE && isset($_SESSION['access'])){
-        if($_SESSION['access'] === 'Admin'){return true;}
+    if(isset($_SESSION['access'])){
+        if($_SESSION['access'] == 'Administrator'){return true;}
         return false;
        }
        return false;
@@ -74,13 +74,11 @@ catch(Exception $e){
 
  
 
-
-
-    if($result['Password'] != null){
-        if(password_verify($pass, $result['Password'])){
+    if($result[0]['Password'] != null){
+        if(password_verify($pass, $result[0]['Password'])){
             if (session_status() === PHP_SESSION_ACTIVE){
                 $_SESSION['username'] = $username;
-                $_SESSION['access'] = $result['AccessTypeName'];
+                $_SESSION['access'] = $result[0]['AccessTypeName'];
                 $responseData = array("UserName" => $username, "Message" => "User logged in");
                 http_response_code(200);
                 header('Content-type:application/json;charset=utf-8');

@@ -5,4 +5,5 @@ include 'db.php';
 require 'auth/userauth.php';
 require 'auth/register.php';
 require 'auth/admin.php';
+require 'auth/public.php';
 ?>

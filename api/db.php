@@ -27,8 +27,10 @@
     }
 
     function runSQL($sql, $params = array()){
+        echo("params ".$params);
         try{
             $stmt = $this->$conn->prepare($sql);
+
 
             foreach($params as $Name => &$Value){
               
@@ -37,8 +39,15 @@
 
         //$stmt->bindValue(':username', $username);
             $stmt->execute();
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $result;
+
+            $out = array();
+            $i = 0;
+            while ($result = $stmt->fetch(PDO::FETCH_ASSOC)){
+                $out[$i] = $result;
+                $i++;
+            }
+            
+            return $out;
         }
         catch(Exception $e){
             echo 'Caught exception: ',  $e->getMessage(), "\n";
