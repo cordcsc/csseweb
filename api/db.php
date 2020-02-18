@@ -27,7 +27,6 @@
     }
 
     function runSQL($sql, $params = array()){
-        echo("params ".$params);
         try{
             $stmt = $this->$conn->prepare($sql);
 

@@ -10,20 +10,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             getAllAccessTypes();
             break;
             }
-    switch(isset($_POST)){
-        case isset($_POST['newMember']):
-            createNewMember($_POST);
-            break;
-    }
-       
-         
 
 }
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    switch(isset($_POST)){
+        case isset($_POST['newMember']):
+            createNewMember();
+            break;
+    }
+}
 
-function createNewMember($data){
+function createNewMember(){
 if(authenticateAdmin()){
-    foreach($data as $key=>$post_data){
-        echo "You posted:" . $key . " = " . $post_data . "<br>";
+    
+    $sql = "INSERT INTO MEMBER VALUES (:firstname, :lastname, :gradyear,
+    :currentmember, :alumni, :photourl, :email, :phone, :userid)";
+    $params = array();
+
+    foreach($_POST as $key => $value){
+        if($key != "newMember"){
+        array_push($params, [(':'.$key) => $value]);
+        }
+    }
+    echo(json_encode($params));
+    try{
+    $result = (new db())->connect()->runSQL($sql, $params);
+    }
+    catch(Exception $e){
+        echo($e);
     }
 }
 }
